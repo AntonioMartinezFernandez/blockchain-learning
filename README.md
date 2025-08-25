@@ -10,3 +10,11 @@ This repository contains educational resources and projects related to blockchai
 
 - [Infura](https://www.infura.io/)
 - [Metamask](https://metamask.io/en-GB)
+- [Ganache Install](https://archive.trufflesuite.com/ganache/)
+- [Truffle Install](https://archive.trufflesuite.com/docs/truffle/how-to/install/)
+
+## Useful Commands
+
+```bash
+
+```

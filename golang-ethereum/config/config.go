@@ -8,7 +8,9 @@ import (
 )
 
 type Config struct {
-	InfuraURL string `env:"INFURA_URL"`
+	InfuraURL         string `env:"INFURA_URL"`
+	GanacheURL        string `env:"GANACHE_URL"`
+	GanacheEthAddress string `env:"GANACHE_ETH_ADDRESS"`
 }
 
 func New[CONFIG any](ctx context.Context) (*CONFIG, error) {
