@@ -8,6 +8,7 @@ import (
 	"github.com/AntonioMartinezFernandez/blockchain-learning/golang-ethereum/config"
 
 	"github.com/ethereum/go-ethereum/accounts/keystore"
+	// "github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 )
 
@@ -24,9 +25,9 @@ func main() {
 	address1 := decryptedKeystoreKey1.Address
 	address2 := decryptedKeystoreKey2.Address
 
-	// --- Alternatively, use existing accounts by specifying their addresses here ---
-	// address1 := common.HexToAddress("0xYourFirstAccountAddress")
-	// address2 := common.HexToAddress("0xYourSecondAccountAddress")
+	// --- Alternatively, use existing accounts by specifying their addresses in the config ---
+	// address1 := common.HexToAddress(cfg.SepoliaAddress1)
+	// address2 := common.HexToAddress(cfg.SepoliaAddress2)
 
 	fmt.Printf("Account 1 Address: %s\n", address1.Hex())
 	fmt.Printf("Account 2 Address: %s\n", address2.Hex())

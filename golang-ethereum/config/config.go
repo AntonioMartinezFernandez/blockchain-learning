@@ -14,6 +14,8 @@ type Config struct {
 	GanacheEthAddress string `env:"GANACHE_ETH_ADDRESS"`
 	KeystoreFolder    string `env:"KEYSTORE_FOLDER"`
 	WalletPassword    string `env:"WALLET_PASSWORD"`
+	SepoliaAddress1   string `env:"SEPOLIA_ADDRESS_1"`
+	SepoliaAddress2   string `env:"SEPOLIA_ADDRESS_2"`
 }
 
 func New[CONFIG any](ctx context.Context) (*CONFIG, error) {

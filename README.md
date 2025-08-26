@@ -11,6 +11,7 @@ This repository contains educational resources and projects related to blockchai
 - [Etherscan](https://etherscan.io/)
 - [Infura](https://www.infura.io/)
 - [Metamask](https://metamask.io/en-GB)
+- [Sepolia [testnet] ETHER mining faucet](https://sepolia-faucet.pk910.de/)
 - [Ganache Install](https://archive.trufflesuite.com/ganache/)
 - [Truffle Install](https://archive.trufflesuite.com/docs/truffle/how-to/install/)
 - [Hardhat](https://hardhat.org/getting-started/)
