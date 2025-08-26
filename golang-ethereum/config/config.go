@@ -8,14 +8,16 @@ import (
 )
 
 type Config struct {
-	InfuraURL         string `env:"INFURA_URL"`
-	InfuraTestnetURL  string `env:"INFURA_TESTNET_URL"`
-	GanacheURL        string `env:"GANACHE_URL"`
-	GanacheEthAddress string `env:"GANACHE_ETH_ADDRESS"`
-	KeystoreFolder    string `env:"KEYSTORE_FOLDER"`
-	WalletPassword    string `env:"WALLET_PASSWORD"`
-	SepoliaAddress1   string `env:"SEPOLIA_ADDRESS_1"`
-	SepoliaAddress2   string `env:"SEPOLIA_ADDRESS_2"`
+	InfuraURL                       string `env:"INFURA_URL"`
+	InfuraTestnetURL                string `env:"INFURA_TESTNET_URL"`
+	GanacheURL                      string `env:"GANACHE_URL"`
+	GanacheEthAddress               string `env:"GANACHE_ETH_ADDRESS"`
+	KeystoreFolder                  string `env:"KEYSTORE_FOLDER"`
+	WalletPassword                  string `env:"WALLET_PASSWORD"`
+	SepoliaAddress1                 string `env:"SEPOLIA_ADDRESS_1"`
+	SepoliaAddress2                 string `env:"SEPOLIA_ADDRESS_2"`
+	SepoliaAccount1KeystoreFilepath string `env:"SEPOLIA_ACCOUNT_1_KEYSTORE_FILEPATH"`
+	SepoliaAccount2KeystoreFilepath string `env:"SEPOLIA_ACCOUNT_2_KEYSTORE_FILEPATH"`
 }
 
 func New[CONFIG any](ctx context.Context) (*CONFIG, error) {

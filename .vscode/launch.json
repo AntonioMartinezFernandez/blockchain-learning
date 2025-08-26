@@ -40,6 +40,14 @@
       "mode": "debug",
       "program": "${workspaceFolder}/golang-ethereum/cmd/05-testnet-ethereum-wallet/main.go",
       "cwd": "${workspaceFolder}/golang-ethereum"
+    },
+    {
+      "name": "06 - Testnet Ethereum Transactions",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "${workspaceFolder}/golang-ethereum/cmd/06-testnet-ethereum-transactions/main.go",
+      "cwd": "${workspaceFolder}/golang-ethereum"
     }
   ]
 }

@@ -43,4 +43,9 @@ func main() {
 
 	addressHexString := crypto.PubkeyToAddress(publicKey).Hex()
 	fmt.Printf("Address: %s\n", addressHexString)
+
+	// Verify that the private key can be reconstructed from the hex string
+	decodedPrivateKeyHexString, _ := hexutil.Decode(privateKeyHexString)
+	reconstructedPrivateKey, _ := crypto.ToECDSA(decodedPrivateKeyHexString)
+	fmt.Println("Private keys matches (reconstructed):", reconstructedPrivateKey.Equal(privateKey))
 }
