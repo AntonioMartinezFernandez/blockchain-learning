@@ -11,6 +11,8 @@ type Config struct {
 	InfuraURL         string `env:"INFURA_URL"`
 	GanacheURL        string `env:"GANACHE_URL"`
 	GanacheEthAddress string `env:"GANACHE_ETH_ADDRESS"`
+	KeystoreFolder    string `env:"KEYSTORE_FOLDER"`
+	WalletPassword    string `env:"WALLET_PASSWORD"`
 }
 
 func New[CONFIG any](ctx context.Context) (*CONFIG, error) {

@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/AntonioMartinezFernandez/blockchain-learning/golang-ethereum/config"
+
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/ethclient"
 )

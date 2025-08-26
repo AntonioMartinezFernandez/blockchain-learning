@@ -8,10 +8,16 @@ This repository contains educational resources and projects related to blockchai
 
 ## Useful Links
 
+- [Etherscan](https://etherscan.io/)
 - [Infura](https://www.infura.io/)
 - [Metamask](https://metamask.io/en-GB)
 - [Ganache Install](https://archive.trufflesuite.com/ganache/)
 - [Truffle Install](https://archive.trufflesuite.com/docs/truffle/how-to/install/)
+- [Hardhat](https://hardhat.org/getting-started/)
+- [Remix IDE](https://remix.ethereum.org/)
+- [Solidity Docs](https://docs.soliditylang.org/en/v0.8.30/)
+- [Solidity by Example](https://solidity-by-example.org/)
+- [OpenZeppelin library Docs](https://docs.openzeppelin.com/contracts/5.x/)
 
 ## Useful Commands
 

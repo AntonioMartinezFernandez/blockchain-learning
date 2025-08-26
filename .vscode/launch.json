@@ -8,6 +8,30 @@
       "mode": "debug",
       "program": "${workspaceFolder}/golang-ethereum/cmd/01-interact-with-ethereum/main.go",
       "cwd": "${workspaceFolder}/golang-ethereum"
+    },
+    {
+      "name": "02 - Check Wallet Balance",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "${workspaceFolder}/golang-ethereum/cmd/02-check-wallet-balance/main.go",
+      "cwd": "${workspaceFolder}/golang-ethereum"
+    },
+    {
+      "name": "03 - Generate Ether Wallet",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "${workspaceFolder}/golang-ethereum/cmd/03-generate-ether-wallet/main.go",
+      "cwd": "${workspaceFolder}/golang-ethereum"
+    },
+    {
+      "name": "04 - Generate Ethereum Keystore Wallet",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "${workspaceFolder}/golang-ethereum/cmd/04-generate-ethereum-keystore-wallet/main.go",
+      "cwd": "${workspaceFolder}/golang-ethereum"
     }
   ]
 }
