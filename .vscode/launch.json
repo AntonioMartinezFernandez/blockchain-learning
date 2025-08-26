@@ -32,6 +32,14 @@
       "mode": "debug",
       "program": "${workspaceFolder}/golang-ethereum/cmd/04-generate-ethereum-keystore-wallet/main.go",
       "cwd": "${workspaceFolder}/golang-ethereum"
+    },
+    {
+      "name": "05 - Testnet Ethereum Wallet",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "${workspaceFolder}/golang-ethereum/cmd/05-testnet-ethereum-wallet/main.go",
+      "cwd": "${workspaceFolder}/golang-ethereum"
     }
   ]
 }

@@ -9,6 +9,7 @@ import (
 
 type Config struct {
 	InfuraURL         string `env:"INFURA_URL"`
+	InfuraTestnetURL  string `env:"INFURA_TESTNET_URL"`
 	GanacheURL        string `env:"GANACHE_URL"`
 	GanacheEthAddress string `env:"GANACHE_ETH_ADDRESS"`
 	KeystoreFolder    string `env:"KEYSTORE_FOLDER"`
