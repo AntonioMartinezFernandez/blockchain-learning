@@ -23,5 +23,15 @@ This repository contains educational resources and projects related to blockchai
 ## Useful Commands
 
 ```bash
+# Initialize a new Hardhat project
+npx hardhat --init
 
+# Start a local blockchain
+npx hardhat node
+
+# Run tests
+npx hardhat test
+
+# Deploy to local blockchain
+npx hardhat ignition deploy ignition/modules/Counter.ts --network localhost
 ```

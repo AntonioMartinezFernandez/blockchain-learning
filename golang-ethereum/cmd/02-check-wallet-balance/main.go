@@ -20,14 +20,14 @@ func main() {
 		os.Exit(1)
 	}
 
-	client, err := ethclient.DialContext(ctx, cfg.GanacheURL)
+	client, err := ethclient.DialContext(ctx, cfg.LocalBlockchainURL)
 	if err != nil {
 		fmt.Println("Error creating client:", err)
 		os.Exit(1)
 	}
 	defer client.Close()
 
-	ethAddress := common.HexToAddress(cfg.GanacheEthAddress)
+	ethAddress := common.HexToAddress(cfg.LocalBlockchainEthAddress)
 
 	balance, err := client.BalanceAt(ctx, ethAddress, nil)
 	if err != nil {
