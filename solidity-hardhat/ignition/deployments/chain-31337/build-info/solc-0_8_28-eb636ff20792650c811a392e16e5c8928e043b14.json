@@ -1,0 +1,39 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_28-eb636ff20792650c811a392e16e5c8928e043b14",
+  "solcVersion": "0.8.28",
+  "solcLongVersion": "0.8.28+commit.7893614a",
+  "userSourceNameMap": {
+    "contracts/Todo.sol": "project/contracts/Todo.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "cancun",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/Todo.sol": {
+        "content": "// SPDX-License-Identifier: UNLICENSED\npragma solidity >=0.8.0 <0.9.0;\n\ncontract Todo {\n    struct Task {\n        string description;\n        bool completed;\n    }\n\n    Task[] public tasks;\n\n    constructor() {}\n\n    event TaskAdded(uint indexed taskId, string description);\n    event TaskCompleted(uint indexed taskId);\n\n    function addTask(string memory _description) public {\n        tasks.push(Task({description: _description, completed: false}));\n        emit TaskAdded(tasks.length - 1, _description);\n    }\n\n    function completeTask(uint _taskId) public {\n        require(_taskId < tasks.length, \"Task does not exist\");\n        require(!tasks[_taskId].completed, \"Task already completed\");\n        tasks[_taskId].completed = true;\n        emit TaskCompleted(_taskId);\n    }\n\n    function getTask(uint _taskId) public view returns (string memory, bool) {\n        require(_taskId < tasks.length, \"Task does not exist\");\n        Task memory task = tasks[_taskId];\n        return (task.description, task.completed);\n    }\n\n    function getAllTasks() public view returns (Task[] memory) {\n        return tasks;\n    }\n}\n"
+      }
+    }
+  }
+}

@@ -48,6 +48,22 @@
       "mode": "debug",
       "program": "${workspaceFolder}/golang-ethereum/cmd/06-testnet-ethereum-transactions/main.go",
       "cwd": "${workspaceFolder}/golang-ethereum"
+    },
+    {
+      "name": "07 - Smart Contract Interaction",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "${workspaceFolder}/golang-ethereum/cmd/07-smart-contract-deployment/main.go",
+      "cwd": "${workspaceFolder}/golang-ethereum"
+    },
+    {
+      "name": "08 - Smart Contract Interaction",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "${workspaceFolder}/golang-ethereum/cmd/08-smart-contract-interaction/main.go",
+      "cwd": "${workspaceFolder}/golang-ethereum"
     }
   ]
 }
