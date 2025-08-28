@@ -21,9 +21,9 @@ func main() {
 	}
 
 	// Create two accounts
-	decryptedKeystoreKey1, decryptedKeystoreKey2 := createAccounts(cfg)
-	address1 := decryptedKeystoreKey1.Address
-	address2 := decryptedKeystoreKey2.Address
+	decryptedKeystore1, decryptedKeystore2 := createAccounts(cfg)
+	address1 := decryptedKeystore1.Address
+	address2 := decryptedKeystore2.Address
 
 	// --- Alternatively, use existing accounts by specifying their addresses in the config ---
 	// address1 := common.HexToAddress(cfg.SepoliaAddress1)
@@ -73,7 +73,7 @@ func createAccounts(cfg *config.Config) (*keystore.Key, *keystore.Key) {
 		os.Exit(1)
 	}
 
-	decryptedKeystoreKey1, err := keystore.DecryptKey(fileContentAsBytes1, cfg.WalletPassword)
+	decryptedKeystore1, err := keystore.DecryptKey(fileContentAsBytes1, cfg.WalletPassword)
 	if err != nil {
 		fmt.Println("Error decrypting the keystore file:", err)
 		os.Exit(1)
@@ -94,11 +94,11 @@ func createAccounts(cfg *config.Config) (*keystore.Key, *keystore.Key) {
 		os.Exit(1)
 	}
 
-	decryptedKeystoreKey2, err := keystore.DecryptKey(fileContentAsBytes2, cfg.WalletPassword)
+	decryptedKeystore2, err := keystore.DecryptKey(fileContentAsBytes2, cfg.WalletPassword)
 	if err != nil {
 		fmt.Println("Error decrypting the keystore file:", err)
 		os.Exit(1)
 	}
 
-	return decryptedKeystoreKey1, decryptedKeystoreKey2
+	return decryptedKeystore1, decryptedKeystore2
 }

@@ -8,16 +8,19 @@ import (
 )
 
 type Config struct {
-	InfuraURL                       string `env:"INFURA_URL"`
-	InfuraTestnetURL                string `env:"INFURA_TESTNET_URL"`
-	LocalBlockchainURL              string `env:"LOCAL_BLOCKCHAIN_URL"`
-	LocalBlockchainEthAddress       string `env:"LOCAL_BLOCKCHAIN_ETH_ADDRESS"`
-	KeystoreFolder                  string `env:"KEYSTORE_FOLDER"`
-	WalletPassword                  string `env:"WALLET_PASSWORD"`
-	SepoliaAddress1                 string `env:"SEPOLIA_ADDRESS_1"`
-	SepoliaAddress2                 string `env:"SEPOLIA_ADDRESS_2"`
-	SepoliaAccount1KeystoreFilepath string `env:"SEPOLIA_ACCOUNT_1_KEYSTORE_FILEPATH"`
-	SepoliaAccount2KeystoreFilepath string `env:"SEPOLIA_ACCOUNT_2_KEYSTORE_FILEPATH"`
+	InfuraURL                           string `env:"INFURA_URL"`
+	InfuraTestnetURL                    string `env:"INFURA_TESTNET_URL"`
+	LocalBlockchainURL                  string `env:"LOCAL_BLOCKCHAIN_URL"`
+	LocalBlockchainEthAddress           string `env:"LOCAL_BLOCKCHAIN_ETH_ADDRESS"`
+	LocalBlockchainEthAddressPrivateKey string `env:"LOCAL_BLOCKCHAIN_ETH_ADDRESS_PRIVATE_KEY"`
+	KeystoreFolder                      string `env:"KEYSTORE_FOLDER"`
+	WalletPassword                      string `env:"WALLET_PASSWORD"`
+	SepoliaAddress1                     string `env:"SEPOLIA_ADDRESS_1"`
+	SepoliaAddress2                     string `env:"SEPOLIA_ADDRESS_2"`
+	SepoliaAccount1KeystoreFilepath     string `env:"SEPOLIA_ACCOUNT_1_KEYSTORE_FILEPATH"`
+	SepoliaAccount2KeystoreFilepath     string `env:"SEPOLIA_ACCOUNT_2_KEYSTORE_FILEPATH"`
+	TodoContractAddress                 string `env:"TODO_CONTRACT_ADDRESS"`
+	TodoLocalContractAddress            string `env:"TODO_LOCAL_CONTRACT_ADDRESS"`
 }
 
 func New[CONFIG any](ctx context.Context) (*CONFIG, error) {

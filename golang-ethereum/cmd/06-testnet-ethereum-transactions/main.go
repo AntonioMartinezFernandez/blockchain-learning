@@ -77,7 +77,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	decryptedKeystoreKey, err := getDecryptedKeystoreKey(
+	decryptedKeystore, err := getDecryptedKeystore(
 		cfg.SepoliaAccount1KeystoreFilepath,
 		cfg.WalletPassword,
 	)
@@ -89,7 +89,7 @@ func main() {
 	signedTransaction, err := types.SignTx(
 		transaction,
 		types.NewEIP155Signer(blockchainID),
-		decryptedKeystoreKey.PrivateKey,
+		decryptedKeystore.PrivateKey,
 	)
 	if err != nil {
 		fmt.Println("Error signing transaction:", err)
@@ -125,16 +125,16 @@ func main() {
 	}
 }
 
-func getDecryptedKeystoreKey(keystoreFilepath string, password string) (*keystore.Key, error) {
+func getDecryptedKeystore(keystoreFilepath string, password string) (*keystore.Key, error) {
 	fileContentAsBytes, err := os.ReadFile(keystoreFilepath)
 	if err != nil {
 		return nil, fmt.Errorf("error reading the keystore file: %w", err)
 	}
 
-	decryptedKeystoreKey, err := keystore.DecryptKey(fileContentAsBytes, password)
+	decryptedKeystore, err := keystore.DecryptKey(fileContentAsBytes, password)
 	if err != nil {
 		return nil, fmt.Errorf("error decrypting the keystore file: %w", err)
 	}
 
-	return decryptedKeystoreKey, nil
+	return decryptedKeystore, nil
 }

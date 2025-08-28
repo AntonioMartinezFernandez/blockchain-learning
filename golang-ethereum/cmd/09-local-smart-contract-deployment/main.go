@@ -10,8 +10,9 @@ import (
 	"github.com/AntonioMartinezFernandez/blockchain-learning/golang-ethereum/config"
 
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
-	"github.com/ethereum/go-ethereum/accounts/keystore"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/ethclient"
 )
 
@@ -23,9 +24,9 @@ func main() {
 		os.Exit(1)
 	}
 
-	clientAddress := common.HexToAddress(cfg.SepoliaAddress1)
+	clientAddress := common.HexToAddress(cfg.LocalBlockchainEthAddress)
 
-	client, err := ethclient.DialContext(ctx, cfg.InfuraTestnetURL)
+	client, err := ethclient.DialContext(ctx, cfg.LocalBlockchainURL)
 	if err != nil {
 		fmt.Println("Error creating client:", err)
 		os.Exit(1)
@@ -50,16 +51,10 @@ func main() {
 		os.Exit(1)
 	}
 
-	decryptedKeystore, err := getDecryptedKeystore(
-		cfg.SepoliaAccount1KeystoreFilepath,
-		cfg.WalletPassword,
-	)
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(1)
-	}
+	decodedPrivateKeyBytes, _ := hexutil.Decode(cfg.LocalBlockchainEthAddressPrivateKey)
+	privateKey, _ := crypto.ToECDSA(decodedPrivateKeyBytes)
 
-	transactor, err := bind.NewKeyedTransactorWithChainID(decryptedKeystore.PrivateKey, blockchainID)
+	transactor, err := bind.NewKeyedTransactorWithChainID(privateKey, blockchainID)
 	if err != nil {
 		fmt.Println("Error creating transactor:", err)
 		os.Exit(1)
@@ -76,19 +71,4 @@ func main() {
 
 	fmt.Printf("Contract deployed! Wait for the transaction %s to be mined...\n", tx.Hash().Hex())
 	fmt.Printf("Contract address: %s\n", deployedContractAddress.Hex())
-	fmt.Printf("Check contract deployment on: https://sepolia.etherscan.io/address/%s\n", deployedContractAddress.Hex())
-}
-
-func getDecryptedKeystore(keystoreFilepath string, password string) (*keystore.Key, error) {
-	fileContentAsBytes, err := os.ReadFile(keystoreFilepath)
-	if err != nil {
-		return nil, fmt.Errorf("error reading the keystore file: %w", err)
-	}
-
-	decryptedKeystore, err := keystore.DecryptKey(fileContentAsBytes, password)
-	if err != nil {
-		return nil, fmt.Errorf("error decrypting the keystore file: %w", err)
-	}
-
-	return decryptedKeystore, nil
 }

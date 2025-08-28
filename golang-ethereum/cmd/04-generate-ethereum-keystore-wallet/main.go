@@ -40,20 +40,20 @@ func main() {
 
 	fmt.Printf("Keystore file content: %s\n", string(fileContentAsBytes))
 
-	decryptedKeystoreKey, err := keystore.DecryptKey(fileContentAsBytes, cfg.WalletPassword)
+	decryptedKeystore, err := keystore.DecryptKey(fileContentAsBytes, cfg.WalletPassword)
 	if err != nil {
 		fmt.Println("Error decrypting the keystore file:", err)
 		os.Exit(1)
 	}
 
-	privateKeyBytes := crypto.FromECDSA(decryptedKeystoreKey.PrivateKey)
+	privateKeyBytes := crypto.FromECDSA(decryptedKeystore.PrivateKey)
 	privateKeyHexString := hexutil.Encode(privateKeyBytes)
 	fmt.Printf("Private Key: %s\n", privateKeyHexString)
 
-	publicKeyBytes := crypto.FromECDSAPub(&decryptedKeystoreKey.PrivateKey.PublicKey)
+	publicKeyBytes := crypto.FromECDSAPub(&decryptedKeystore.PrivateKey.PublicKey)
 	publicKeyHexString := hexutil.Encode(publicKeyBytes)
 	fmt.Printf("Public Key: %s\n", publicKeyHexString)
 
-	addressHexString := decryptedKeystoreKey.Address.Hex()
+	addressHexString := decryptedKeystore.Address.Hex()
 	fmt.Printf("Address: %s\n", addressHexString)
 }

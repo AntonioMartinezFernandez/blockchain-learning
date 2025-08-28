@@ -64,6 +64,22 @@
       "mode": "debug",
       "program": "${workspaceFolder}/golang-ethereum/cmd/08-smart-contract-interaction/main.go",
       "cwd": "${workspaceFolder}/golang-ethereum"
+    },
+    {
+      "name": "09 - Local Smart Contract Deployment",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "${workspaceFolder}/golang-ethereum/cmd/09-local-smart-contract-deployment/main.go",
+      "cwd": "${workspaceFolder}/golang-ethereum"
+    },
+    {
+      "name": "10 - Local Smart Contract Interaction",
+      "type": "go",
+      "request": "launch",
+      "mode": "debug",
+      "program": "${workspaceFolder}/golang-ethereum/cmd/10-local-smart-contract-interaction/main.go",
+      "cwd": "${workspaceFolder}/golang-ethereum"
     }
   ]
 }

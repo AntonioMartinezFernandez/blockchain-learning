@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"math/big"
 	"os"
+	"time"
 
-	"github.com/AntonioMartinezFernandez/blockchain-learning/golang-ethereum/cmd/07-smart-contract-deployment/todo"
+	"github.com/AntonioMartinezFernandez/blockchain-learning/golang-ethereum/cmd/08-smart-contract-interaction/todo"
 	"github.com/AntonioMartinezFernandez/blockchain-learning/golang-ethereum/config"
 
 	"github.com/ethereum/go-ethereum/accounts/abi/bind"
@@ -59,6 +60,14 @@ func main() {
 		os.Exit(1)
 	}
 
+	contractAddress := common.HexToAddress(cfg.TodoContractAddress)
+
+	todoInstance, err := todo.NewTodo(contractAddress, client)
+	if err != nil {
+		fmt.Println("Error instantiating contract:", err)
+		os.Exit(1)
+	}
+
 	transactor, err := bind.NewKeyedTransactorWithChainID(decryptedKeystore.PrivateKey, blockchainID)
 	if err != nil {
 		fmt.Println("Error creating transactor:", err)
@@ -68,15 +77,23 @@ func main() {
 	transactor.GasLimit = 3_000_000
 	transactor.Nonce = big.NewInt(int64(nonce))
 
-	deployedContractAddress, tx, _, err := todo.DeployTodo(transactor, client)
+	tx, err := todoInstance.AddTask(transactor, "A new task from Go!")
 	if err != nil {
-		fmt.Println("Error deploying contract:", err)
+		fmt.Println("Error adding task:", err)
 		os.Exit(1)
 	}
 
-	fmt.Printf("Contract deployed! Wait for the transaction %s to be mined...\n", tx.Hash().Hex())
-	fmt.Printf("Contract address: %s\n", deployedContractAddress.Hex())
-	fmt.Printf("Check contract deployment on: https://sepolia.etherscan.io/address/%s\n", deployedContractAddress.Hex())
+	fmt.Printf("Task %s added...\n", tx.Hash().Hex())
+
+	<-time.After(15 * time.Second)
+
+	allTodos, err := todoInstance.GetAllTasks((&bind.CallOpts{Pending: false}))
+	if err != nil {
+		fmt.Println("Error getting all tasks:", err)
+		os.Exit(1)
+	}
+
+	fmt.Printf("All tasks:\n%+v\n", allTodos)
 }
 
 func getDecryptedKeystore(keystoreFilepath string, password string) (*keystore.Key, error) {

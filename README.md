@@ -49,7 +49,6 @@ docker run \
         --bin \
         --output-dir /sources/output/
 
-
 # Install abigen
 go install github.com/ethereum/go-ethereum/cmd/abigen@latest
 
