@@ -18,11 +18,11 @@
       "cwd": "${workspaceFolder}/golang-ethereum"
     },
     {
-      "name": "03 - Generate Ether Wallet",
+      "name": "03 - Generate Crypto Address",
       "type": "go",
       "request": "launch",
       "mode": "debug",
-      "program": "${workspaceFolder}/golang-ethereum/cmd/03-generate-ether-wallet/main.go",
+      "program": "${workspaceFolder}/golang-ethereum/cmd/03-generate-crypto-address/main.go",
       "cwd": "${workspaceFolder}/golang-ethereum"
     },
     {
